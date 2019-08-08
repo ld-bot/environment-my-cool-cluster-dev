@@ -1,17 +1,22 @@
 cluster:
-  clusterName: ""
-  environmentGitOwner: ""
-  project: ""
+  clusterName: my-cool-cluster
+  environmentGitOwner: ldon-dev-org
+  gitKind: github
+  gitName: github
+  gitServer: https://github.com
+  namespace: jx
+  project: ldonley
   provider: gke
-  zone: ""
-gitops: true
+  zone: us-east1-b
 environments:
 - key: dev
 - key: staging
 - key: production
+gitops: true
 ingress:
-  domain: ""
+  domain: 34.73.246.166.nip.io
   externalDNS: false
+  namespaceSubDomain: -jx.
   tls:
     email: ""
     enabled: false
@@ -21,13 +26,13 @@ secretStorage: vault
 storage:
   logs:
     enabled: true
-    url: ""
+    url: gs://my-cool-cluster-logs-4c1473d1-fbfc-47c9-bc11-fe88e76ab8
   reports:
     enabled: true
-    url: ""
+    url: gs://my-cool-cluster-reports-c5982c51-e948-46dc-9577-90565e5
   repository:
     enabled: true
-    url: ""
+    url: gs://my-cool-cluster-repository-3a5b63b5-b8fe-42c8-ac9b-c928
 versionStream:
   ref: master
   url: https://github.com/cloudbees/cloudbees-jenkins-x-versions.git
